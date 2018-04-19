@@ -16,6 +16,8 @@ import com.pranjaldesai.androidjokes.JokeDisplayActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String JOKEEXTRA ="joke";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             String joke = new EndpointsAsyncTask().execute().get();
             if (joke != null) {
-                intent.putExtra("joke", joke);
+                intent.putExtra(JOKEEXTRA, joke);
                 startActivity(intent);
             }
         }catch (Exception e){
